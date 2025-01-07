@@ -14,8 +14,15 @@ export SCHEMA_REGISTRY_URL="https://<prefix>.eu-central-1.aws.confluent.cloud"
 export SASL_JAAS_CONFIG='org.apache.kafka.common.security.plain.PlainLoginModule required username="API-KEY" password="API-KEY-SECRET";'
 
 export SCHEMA_REGISTRY_BASIC_AUTH_USER_INFO=SR-API-KEY:SR-API-SECRET
+```
 
 start the  stack
+
 ```bash
 docker-compose up -d
+```
+### create the connector
+
+```bash
+curl -X PUT -H "Content-Type: application/json" --data "@mm2.json" http://localhost:8083/connectors/test_mirror/config | jq .
 ```
