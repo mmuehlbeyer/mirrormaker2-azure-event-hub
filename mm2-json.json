@@ -1,0 +1,26 @@
+{
+    "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+    "name":"test_mirror",
+    "source.cluster.alias":"CC",
+    "target.cluster.alias":"AZ",
+    "topics":"demo-azure-json",
+    "source.cluster.bootstrap.servers":"<prefix>.germanywestcentral.azure.confluent.cloud:9092",
+    "source.cluster.security.protocol":"SASL_SSL",
+    "source.cluster.sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username='<API-KEY>' password='<API-SECRET>';",
+    "source.cluster.sasl.mechanism":"PLAIN",
+    "target.cluster.bootstrap.servers":"<eventhub>.servicebus.windows.net:9093",
+    "target.cluster.security.protocol":"SASL_SSL",
+    "target.cluster.sasl.mechanism":"PLAIN",
+    "target.cluster.sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$ConnectionString\" password=\"Endpoint=sb://<eventhub>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<access-key>";",
+    "target.cluster.bootstrap.servers":"<eventhub>.servicebus.windows.net:9093",
+    "producer.override.bootstrap.servers":"<eventhub>.servicebus.windows.net:9093",
+    "producer.override.security.protocol":"SASL_SSL",
+    "producer.override.sasl.mechanism":"PLAIN",
+    "producer.override.sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username=\"$ConnectionString\" password=\"Endpoint=sb://<eventhub>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<access-key>";",
+    "key.converter":"org.apache.kafka.connect.converters.ByteArrayConverter",
+    "value.converter":"org.apache.kafka.connect.converters.ByteArrayConverter"
+
+
+  }
+
+
